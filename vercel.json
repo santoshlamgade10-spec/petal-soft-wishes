@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm --filter @workspace/petal-soft-wishes run build",
+  "outputDirectory": "artifacts/petal-soft-wishes/dist/public",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
