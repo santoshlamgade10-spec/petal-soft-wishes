@@ -36,7 +36,7 @@ function AppShell() {
 
   return (
     <div className="relative min-h-screen">
-      <Petals count={12} sparkles={18} />
+      <Petals count={22} sparkles={18} />
       {!introDone && <EnvelopeIntro onDone={() => setIntroDone(true)} />}
       <div className="relative z-10">
         <Switch>

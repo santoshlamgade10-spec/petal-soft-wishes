@@ -50,7 +50,7 @@ export function Petals({ count = 14, sparkles = 18, hearts = 0 }: Props) {
   if (!mounted) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-30 overflow-hidden">
       {petals.map((p) => (
         <motion.div
           key={`p${p.id}`}
@@ -73,10 +73,10 @@ export function Petals({ count = 14, sparkles = 18, hearts = 0 }: Props) {
           <svg width={p.size} height={p.size} viewBox="0 0 24 24" fill="none">
             <path
               d="M12 2c3 4 6 6 6 10a6 6 0 1 1-12 0c0-4 3-6 6-10z"
-              fill={`oklch(0.86 0.08 ${p.hue})`}
-              stroke={`oklch(0.78 0.12 ${p.hue})`}
+              fill={`oklch(0.82 0.18 ${p.hue})`}
+              stroke={`oklch(0.70 0.22 ${p.hue})`}
               strokeWidth="0.5"
-              opacity="0.85"
+              opacity="0.92"
             />
           </svg>
         </motion.div>
