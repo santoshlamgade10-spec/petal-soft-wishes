@@ -37,7 +37,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     const t0 = performance.now();
     const step = (t: number) => {
       const k = Math.min(1, (t - t0) / ms);
-      a.volume = start + (target - start) * k;
+      a.volume = Math.min(1, Math.max(0, start + (target - start) * k));
       if (k < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
