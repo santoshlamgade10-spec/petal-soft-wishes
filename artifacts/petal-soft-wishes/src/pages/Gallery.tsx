@@ -13,11 +13,11 @@ const items: Item[] = [
   { type: "photo", src: photo1, alt: "Aakriti", tall: true },
   { type: "note", text: "💌 Your smile brightens every day." },
   { type: "photo", src: photo2, alt: "Aakriti" },
+  { type: "note", text: "🌹 Forever grateful to have you." },
   { type: "photo", src: photo3, alt: "Aakriti", tall: true },
   { type: "note", text: "✨ Life feels beautiful with you." },
   { type: "photo", src: photo4, alt: "Aakriti" },
   { type: "note", text: "💕 Every picture of you is my favorite." },
-  { type: "note", text: "🌹 Forever grateful to have you." },
 ];
 
 export default function Gallery() {
