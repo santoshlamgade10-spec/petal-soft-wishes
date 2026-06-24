@@ -1,3 +1,4 @@
+import birthdayMp3 from "@assets/HAPPY_BIRTHDAY_TO_YOU_PIANO_INSTRUMENTAL_BEST_HAPPY_BITHDAY_MU_1782287420200.mp3";
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 
 type AudioCtx = {
@@ -15,12 +16,15 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   const [available, setAvailable] = useState(false);
 
   useEffect(() => {
-    const a = new Audio();
+    const a = new Audio(birthdayMp3);
     a.loop = true;
     a.volume = 0;
-    a.preload = "none";
+    a.preload = "auto";
     ref.current = a;
+    const onCanPlay = () => setAvailable(true);
+    a.addEventListener("canplaythrough", onCanPlay, { once: true });
     return () => {
+      a.removeEventListener("canplaythrough", onCanPlay);
       a.pause();
       ref.current = null;
     };
@@ -41,7 +45,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
   const start = () => {
     const a = ref.current;
-    if (!a || !available || !a.paused) return;
+    if (!a || !a.paused) return;
     a.volume = 0;
     a.play()
       .then(() => {
@@ -53,7 +57,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
   const toggle = () => {
     const a = ref.current;
-    if (!a || !available) return;
+    if (!a) return;
     if (a.paused) {
       start();
     } else {

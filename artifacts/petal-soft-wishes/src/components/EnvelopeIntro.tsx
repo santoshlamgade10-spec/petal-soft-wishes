@@ -1,11 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useAudio } from "@/lib/audio";
 
 export function EnvelopeIntro({ onDone }: { onDone: () => void }) {
   const [stage, setStage] = useState<"closed" | "opening" | "exit">("closed");
+  const { start } = useAudio();
 
   const open = () => {
     if (stage !== "closed") return;
+    start();
     setStage("opening");
     setTimeout(() => setStage("exit"), 4200);
     setTimeout(() => onDone(), 5200);
