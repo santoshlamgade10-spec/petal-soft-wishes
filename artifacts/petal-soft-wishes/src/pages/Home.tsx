@@ -100,14 +100,15 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.88 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.9, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="font-script mt-2"
+          className="font-display mt-2 tracking-widest"
           style={{
-            fontSize: "clamp(3rem, 10vw, 5.5rem)",
-            background: "linear-gradient(135deg, oklch(0.7 0.14 30), oklch(0.82 0.14 85), oklch(0.72 0.16 15))",
+            fontSize: "clamp(2.8rem, 9vw, 5rem)",
+            background: "linear-gradient(135deg, oklch(0.65 0.16 60), oklch(0.85 0.18 85), oklch(0.78 0.2 80), oklch(0.65 0.16 60))",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
-            lineHeight: 1.15,
+            lineHeight: 1.2,
+            filter: "drop-shadow(0 0 12px oklch(0.82 0.18 85 / 0.75)) drop-shadow(0 0 28px oklch(0.78 0.14 85 / 0.45))",
           }}
         >
           AAKRITI{" "}

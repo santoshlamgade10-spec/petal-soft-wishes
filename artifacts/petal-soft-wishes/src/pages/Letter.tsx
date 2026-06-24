@@ -40,7 +40,21 @@ export default function Letter() {
         }}
       >
         <p className="font-hand text-xl" style={{ color: "var(--color-rose)" }}>
-          my dearest Aakriti,
+          my dearest{" "}
+          <span
+            className="font-display tracking-widest"
+            style={{
+              background: "linear-gradient(135deg, oklch(0.65 0.16 60), oklch(0.85 0.18 85), oklch(0.78 0.2 80), oklch(0.65 0.16 60))",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              filter: "drop-shadow(0 0 8px oklch(0.82 0.18 85 / 0.75)) drop-shadow(0 0 18px oklch(0.78 0.14 85 / 0.4))",
+              fontSize: "1.15em",
+            }}
+          >
+            AAKRITI
+          </span>
+          ,
         </p>
         <h1 className="font-script text-4xl sm:text-6xl text-gold-gradient mt-3">
           A Letter For You

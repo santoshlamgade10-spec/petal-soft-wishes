@@ -251,14 +251,24 @@ export function EnvelopeIntro({ onDone }: { onDone: () => void }) {
                   <p
                     className="font-script leading-tight"
                     style={{
-                      fontSize: "clamp(1.6rem, 5vw, 2.4rem)",
-                      background: "linear-gradient(135deg, oklch(0.7 0.14 30), oklch(0.82 0.14 85), oklch(0.7 0.14 30))",
+                      fontSize: "clamp(1.4rem, 4vw, 2rem)",
+                      color: "oklch(0.55 0.1 20)",
+                    }}
+                  >
+                    Happy Birthday
+                  </p>
+                  <p
+                    className="font-display tracking-widest leading-tight mt-1"
+                    style={{
+                      fontSize: "clamp(1.8rem, 5.5vw, 2.6rem)",
+                      background: "linear-gradient(135deg, oklch(0.65 0.16 60), oklch(0.85 0.18 85), oklch(0.78 0.2 80), oklch(0.65 0.16 60))",
                       WebkitBackgroundClip: "text",
                       backgroundClip: "text",
                       color: "transparent",
+                      filter: "drop-shadow(0 0 10px oklch(0.82 0.18 85 / 0.8)) drop-shadow(0 0 22px oklch(0.78 0.14 85 / 0.5))",
                     }}
                   >
-                    Happy Birthday<br />AAKRITI
+                    AAKRITI
                   </p>
                   <p className="mt-1 text-2xl" style={{ lineHeight: 1 }}>❤️</p>
                 </div>
