@@ -1,6 +1,4 @@
 {
-  "buildCommand": "pnpm --filter @workspace/petal-soft-wishes run build",
-  "devCommand": "pnpm --filter @workspace/petal-soft-wishes run dev",
   "outputDirectory": "artifacts/petal-soft-wishes/dist/public",
   "installCommand": "pnpm install",
   "framework": null,
