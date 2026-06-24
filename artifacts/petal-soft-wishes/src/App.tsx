@@ -1,5 +1,5 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
-import { useState } from "react";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { useEffect, useState } from "react";
 import { AudioProvider, useAudio } from "@/lib/audio";
 import { EnvelopeIntro } from "@/components/EnvelopeIntro";
 import { Petals } from "@/components/Petals";
@@ -26,6 +26,13 @@ function NotFound() {
 function AppShell() {
   const [introDone, setIntroDone] = useState(false);
   const { playing, toggle, available } = useAudio();
+  const [location, navigate] = useLocation();
+
+  useEffect(() => {
+    if (!introDone && location !== "/") {
+      navigate("/");
+    }
+  }, [introDone, location, navigate]);
 
   return (
     <div className="relative min-h-screen">
