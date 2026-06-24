@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import photo1 from "@assets/WhatsApp_Image_2026-06-24_at_12.47.11_PM_1782287427513.jpeg";
 import photo2 from "@assets/image_1782287442716.webp";
 import photo3 from "@assets/image_1782287451170.webp";
@@ -20,9 +21,50 @@ const items: Item[] = [
   { type: "note", text: "💕 Every picture of you is my favorite." },
 ];
 
+function BlurPhoto({ src, alt, tall }: { src: string; alt: string; tall?: boolean }) {
+  const [loaded, setLoaded] = useState(false);
+  const aspect = tall ? "aspect-[3/4]" : "aspect-[4/5]";
+
+  return (
+    <div className={`relative w-full overflow-hidden rounded-2xl ${aspect}`}>
+      {!loaded && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.94 0.04 25), oklch(0.9 0.07 20), oklch(0.92 0.05 25))",
+            backgroundSize: "200% 200%",
+            animation: "shimmer 1.8s ease-in-out infinite",
+          }}
+        />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`
+          w-full h-full object-cover
+          transition-all duration-700 ease-out
+          group-hover:scale-110
+          ${loaded ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-md scale-105"}
+        `}
+      />
+    </div>
+  );
+}
+
 export default function Gallery() {
   return (
     <main className="relative min-h-screen px-5 sm:px-8 py-20">
+      <style>{`
+        @keyframes shimmer {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -55,14 +97,7 @@ export default function Gallery() {
           >
             {it.type === "photo" ? (
               <div className="group relative overflow-hidden rounded-3xl glass p-2">
-                <div className="overflow-hidden rounded-2xl">
-                  <img
-                    src={it.src}
-                    alt={it.alt}
-                    loading="lazy"
-                    className={`w-full ${it.tall ? "aspect-[3/4]" : "aspect-[4/5]"} object-cover transition-transform duration-700 ease-out group-hover:scale-110`}
-                  />
-                </div>
+                <BlurPhoto src={it.src} alt={it.alt} tall={it.tall} />
                 <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/40" />
               </div>
             ) : (
