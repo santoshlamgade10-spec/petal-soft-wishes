@@ -239,13 +239,13 @@ export function EnvelopeIntro({ onDone }: { onDone: () => void }) {
                   padding: "1.5rem",
                   textAlign: "center",
                 }}
-                initial={{ y: 0, scale: 0.9, opacity: 0 }}
+                initial={{ y: 0, scale: 0.88, opacity: 0 }}
                 animate={
                   stage === "opening"
-                    ? { y: "-70%", scale: 1.08, opacity: 1 }
-                    : { y: 0, scale: 0.9, opacity: 0 }
+                    ? { y: "-18%", scale: 1, opacity: 1 }
+                    : { y: 0, scale: 0.88, opacity: 0 }
                 }
-                transition={{ duration: 2.6, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 2.2, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div>
                   <p
@@ -266,35 +266,35 @@ export function EnvelopeIntro({ onDone }: { onDone: () => void }) {
 
               <motion.button
                 onClick={open}
-                className="absolute inset-0 z-20"
                 aria-label="Open envelope"
-                style={{ background: "transparent", border: "none", cursor: "pointer" }}
-                whileHover={stage === "closed" ? { scale: 1.03 } : {}}
-                transition={{ type: "spring", stiffness: 300 }}
-              />
-
-              <motion.div
                 className="absolute z-20 rounded-full flex items-center justify-center font-script"
                 style={{
-                  width: 56,
-                  height: 56,
+                  width: 64,
+                  height: 64,
                   left: "50%",
                   top: "42%",
                   transform: "translate(-50%, -50%)",
                   background: "radial-gradient(circle at 30% 30%, oklch(0.72 0.18 15), oklch(0.45 0.15 15))",
                   boxShadow: "0 6px 16px oklch(0.4 0.15 15 / 0.55), inset 0 -3px 6px oklch(0.3 0.1 15 / 0.5)",
                   color: "oklch(0.97 0.02 80)",
-                  fontSize: "1.6rem",
+                  fontSize: "1.7rem",
+                  border: "none",
+                  cursor: stage === "closed" ? "pointer" : "default",
                 }}
                 animate={
                   stage === "opening"
-                    ? { scale: [1, 1.2, 0], opacity: [1, 1, 0] }
-                    : { scale: 1, opacity: 1 }
+                    ? { scale: [1, 1.25, 0], opacity: [1, 1, 0] }
+                    : { scale: [1, 1.06, 1], opacity: 1 }
                 }
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={
+                  stage === "opening"
+                    ? { duration: 0.5, delay: 0.1 }
+                    : { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
+                }
+                whileHover={stage === "closed" ? { scale: 1.14, boxShadow: "0 8px 24px oklch(0.4 0.18 15 / 0.7), 0 0 20px oklch(0.7 0.18 15 / 0.4)" } : {}}
               >
                 <span>A</span>
-              </motion.div>
+              </motion.button>
             </div>
 
             <motion.p
