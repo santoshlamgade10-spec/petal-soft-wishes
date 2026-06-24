@@ -1,9 +1,9 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import photo1 from "@assets/WhatsApp_Image_2026-06-24_at_12.47.11_PM_1782287427513.jpeg";
-import photo2 from "@assets/image_1782287442716.png";
-import photo3 from "@assets/image_1782287451170.png";
-import photo4 from "@assets/image_1782287473609.png";
+import photo2 from "@assets/image_1782287442716.webp";
+import photo3 from "@assets/image_1782287451170.webp";
+import photo4 from "@assets/image_1782287473609.webp";
 
 type Item =
   | { type: "photo"; src: string; alt: string; tall?: boolean }
